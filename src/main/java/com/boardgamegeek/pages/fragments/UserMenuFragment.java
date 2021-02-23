@@ -11,7 +11,7 @@ public class UserMenuFragment extends BasePage {
 
     public String getUserName() {
         visibilityCheck(userMenuButton);
-        return userMenuButton.getOwnText();
+        return userMenuButton.getText();
     }
 
 }

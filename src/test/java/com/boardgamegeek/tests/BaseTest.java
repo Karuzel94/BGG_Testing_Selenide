@@ -21,7 +21,6 @@ public abstract class BaseTest {
     public LoginProperties loginProperties;
     public UserMenuFragment userMenuFragment;
 
-
     @BeforeTest
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();

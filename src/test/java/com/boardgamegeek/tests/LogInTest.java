@@ -1,17 +1,17 @@
 package com.boardgamegeek.tests;
 
-import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Selenide.open;
 
 public class LogInTest extends BaseTest{
 
     @Test
     public void logInTest() {
-        Selenide.open("https://boardgamegeek.com/");
+        open("https://boardgamegeek.com/");
         signInFragment.clickSignInButton()
                 .signIn(loginProperties.getUsername(), loginProperties.getPassword());
         System.out.println(loginProperties.getUsername());
-
     }
 
 }

@@ -9,7 +9,7 @@ public class SignInFragment extends BasePage {
 
 //private ElementsCollection collection = $$("#");
 
-    private SelenideElement logInButton = $(".c-nav-session.c-nav-primary-separated.dropdown-primary > a");
+    private SelenideElement logInButton = $(".c-nav-session > a");
 
     private SelenideElement userNameInput = $("#inputUsername");
 

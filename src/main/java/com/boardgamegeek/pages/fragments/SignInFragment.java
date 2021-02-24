@@ -7,8 +7,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SignInFragment extends BasePage {
 
-//private ElementsCollection collection = $$("#");
-
     private SelenideElement logInButton = $(".c-nav-session > a");
 
     private SelenideElement userNameInput = $("#inputUsername");

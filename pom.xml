@@ -18,7 +18,8 @@
         <rest-assured.version>4.3.3</rest-assured.version>
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <jmock.version>2.12.0</jmock.version>
-        <selenide.version>5.18.0</selenide.version>
+        <selenide.version>5.19.0</selenide.version>
+        <cucumber.version>6.8.2</cucumber.version>
     </properties>
     <dependencies>
         <dependency>
@@ -70,6 +71,16 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>xml-path</artifactId>
             <version>${rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
         </dependency>
     </dependencies>
     <build>

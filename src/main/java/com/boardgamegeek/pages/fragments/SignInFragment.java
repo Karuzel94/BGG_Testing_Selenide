@@ -20,7 +20,6 @@ public class SignInFragment extends BasePage {
     private SelenideElement cancelSignIn = $(".btn.btn-outline-secondary");
 
 
-
     public SignInFragment clickSignInButton() {
         click(logInButton);
         return this;

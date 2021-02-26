@@ -22,50 +22,50 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 
 public abstract class BaseTest {
 
-    protected WebDriver driver;
-    public SignInFragment signInFragment;
-    public LoginProperties loginProperties;
-    public UserMenuFragment userMenuFragment;
-    private static String chromeVersion = "88.0.4324.96";
+//    protected WebDriver driver;
+    public SignInFragment signInFragment = new SignInFragment();
+    public LoginProperties loginProperties = new LoginProperties();
+    public UserMenuFragment userMenuFragment = new UserMenuFragment();
+//    private static String chromeVersion = "88.0.4324.96";
 
-    @BeforeTest
-    public void setupClass() {
-        Configuration.browser = "chrome";
-        Configuration.browserVersion = chromeVersion;
-        baseUrl = "https://boardgamegeek.com/";
-        System.setProperty("selenide.browser", "chrome");
-    }
+//    @BeforeTest
+//    public void setupClass() {
+//        Configuration.browser = "chrome";
+//        Configuration.browserVersion = chromeVersion;
+//        baseUrl = "https://boardgamegeek.com/";
+//        System.setProperty("selenide.browser", "chrome");
+//    }
 
-    @BeforeClass
-    public void setupTest() {
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        WebDriverRunner.setWebDriver(createDriver(capabilities));
-        WebDriverRunner.getWebDriver().manage().window().maximize();
-        WebDriverRunner.getWebDriver().manage().deleteAllCookies();
-        signInFragment = new SignInFragment();
-        loginProperties = new LoginProperties();
-        userMenuFragment = new UserMenuFragment();
-        Selenide.open(baseUrl);
-    }
-
-    public WebDriver createDriver(DesiredCapabilities capabilities) {
-        Map<String, Object> prefs = new HashMap<String, Object>();
-        prefs.put("credentials_enable_service", false);
-        prefs.put("profile.default_content_setting_values.notifications", 2);
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--incognito");
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
-        return chromeDriver;
-    }
-
-    @AfterClass
-    public void tearDown() {
-        if (WebDriverRunner.getWebDriver() != null) {
-            WebDriverRunner.getWebDriver().quit();
-        }
-    }
+//    @BeforeClass
+//    public void setupTest() {
+//        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--incognito");
+//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+//        WebDriverRunner.setWebDriver(createDriver(capabilities));
+//        WebDriverRunner.getWebDriver().manage().window().maximize();
+//        WebDriverRunner.getWebDriver().manage().deleteAllCookies();
+//        signInFragment = new SignInFragment();
+//        loginProperties = new LoginProperties();
+//        userMenuFragment = new UserMenuFragment();
+//        Selenide.open(baseUrl);
+//    }
+//
+//    public WebDriver createDriver(DesiredCapabilities capabilities) {
+//        Map<String, Object> prefs = new HashMap<String, Object>();
+//        prefs.put("credentials_enable_service", false);
+//        prefs.put("profile.default_content_setting_values.notifications", 2);
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("--incognito");
+//        WebDriverManager.chromedriver().setup();
+//        ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
+//        return chromeDriver;
+//    }
+//
+//    @AfterClass
+//    public void tearDown() {
+//        if (WebDriverRunner.getWebDriver() != null) {
+//            WebDriverRunner.getWebDriver().quit();
+//        }
+//    }
 }

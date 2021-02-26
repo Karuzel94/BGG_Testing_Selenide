@@ -15,6 +15,12 @@ public class SignInFragment extends BasePage {
 
     private SelenideElement signInButton = $(".modal-footer > button[type=submit]");
 
+    private SelenideElement invalidDataCommunicate = $(".help-block");
+
+    private SelenideElement cancelSignIn = $(".btn.btn-outline-secondary");
+
+
+
     public SignInFragment clickSignInButton() {
         click(logInButton);
         return this;
@@ -26,4 +32,16 @@ public class SignInFragment extends BasePage {
         click(signInButton);
         return this;
     }
+
+    public String getErrorText() {
+        visibilityCheck(invalidDataCommunicate);
+        return invalidDataCommunicate.getText();
+    }
+
+    public SignInFragment abortLogIn() {
+        click(cancelSignIn);
+        return this;
+    }
+
+
 }

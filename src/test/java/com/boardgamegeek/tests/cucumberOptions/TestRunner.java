@@ -17,9 +17,7 @@ import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com/boardgamegeek/tests/stepDefinitions",
-        tags = "@negativeLogIn"
-        /* 3 tests: @credentialsLogIn, @regexLogIn and @negativeLogIn (this runs three times,
-         because of three credential examples)*/
+        tags = "@filteringTest"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 

@@ -9,9 +9,18 @@ public class UserMenuFragment extends BasePage {
 
     private SelenideElement userMenuButton = $(".mygeek-dropdown-username.text-truncate");
 
+    private SelenideElement collectionButton = $("a[href*='collection/user']");
+
     public String getUserName() {
         visibilityCheck(userMenuButton);
         return userMenuButton.getText();
     }
+
+    public UserMenuFragment goToCollection() {
+        click(userMenuButton);
+        click(collectionButton);
+        return this;
+    }
+
 
 }

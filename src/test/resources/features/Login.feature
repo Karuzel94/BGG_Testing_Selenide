@@ -1,19 +1,20 @@
+@logIn
 Feature: Login to the application
 
   @credentialsLogIn
-  Scenario: Log in with credentials
-    Given Log with defined credentials
-    And User check if the correct user was logged in
+  Scenario: User tries to log in to the application
+    Given User enters username qwerty1234zz and password qwerty1234zz
+    And User checks if he is currently logged in
 
   @regexLogIn
-  Scenario: Log in with credentials "qwerty1234zz" and password "qwerty1234zz"
-    Given Log in with credentials "qwerty1234zz" and "qwerty1234zz"
-    Then Check if the user "qwerty1234zz" was logged in
+  Scenario: User tries to log in to the application
+    Given User enters username "qwerty1234zz" and password "qwerty1234zz"
+    Then User checks if he, "qwerty1234zz", is currently logged in
 
   @negativeLogIn
-  Scenario Outline: Log in with example credentials
-    Given Log in with example <login> and <password>
-    Then Check if there is an error
+  Scenario Outline: User tries to log in to the application
+    Given User enters an invalid username <login> and password <password>
+    Then User checks if he receives an error
 
     Examples:
       | login        | password     |

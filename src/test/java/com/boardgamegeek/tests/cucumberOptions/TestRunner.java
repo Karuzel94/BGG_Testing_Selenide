@@ -17,7 +17,8 @@ import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com/boardgamegeek/tests/stepDefinitions",
-        tags = "@filteringTest"
+        tags = "@myRating"
+        // myRating, logIn, @sortingTest, @filteringTest, languageDependence,
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 

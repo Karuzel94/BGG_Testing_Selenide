@@ -1,27 +1,15 @@
-package com.boardgamegeek.utilities;
+package com.boardgamegeek.tests.cucumberTestContext;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TestHelper {
+public class TestContext {
 
-    public int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
+    private String tempString;
 
-    private int tempNumber = 0;
+    private int tempNumber;
 
     private List<String> titlesList = new ArrayList<>();
-
-    private String tempString = "";
-
-    public int getTempNumber() {
-        return tempNumber;
-    }
-
-    public void setTempNumber(int tempNumber) {
-        this.tempNumber = tempNumber;
-    }
 
     public String getTempString() {
         return tempString;
@@ -29,6 +17,14 @@ public class TestHelper {
 
     public void setTempString(String tempString) {
         this.tempString = tempString;
+    }
+
+    public int getTempNumber() {
+        return tempNumber;
+    }
+
+    public void setTempNumber(int tempNumber) {
+        this.tempNumber = tempNumber;
     }
 
     public List<String> getTitlesList() {
@@ -53,3 +49,7 @@ public class TestHelper {
     }
 
 }
+
+
+
+

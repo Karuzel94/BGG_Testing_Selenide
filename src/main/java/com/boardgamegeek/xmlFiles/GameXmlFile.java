@@ -12,6 +12,7 @@ import static io.restassured.RestAssured.given;
 public class GameXmlFile {
 
     private List<String> stringList = new ArrayList<>();
+    private final String path = "boardgames.boardgame.poll.find{it.@name=='language_dependence'}.results.result.";
 
     public XmlPath xmlFile(String gameId) {
         return given().get("https://www.boardgamegeek.com/xmlapi/boardgame/" + gameId).xmlPath();
@@ -19,13 +20,13 @@ public class GameXmlFile {
 
     public int getMaxValue(String gameId) {
         stringList = xmlFile(gameId).
-                get("boardgames.boardgame.poll.find{it.@name=='language_dependence'}.results.result.@numvotes");
+                get(path + "@numvotes");
         return Collections.max(stringList.stream().map(Integer::parseInt).collect(Collectors.toList()));
     }
 
     public String getLanguageDependenceFromXml(String gameId) {
         return (getMaxValue(gameId) == 0) ? "(no votes)" : xmlFile(gameId)
-                .get("boardgames.boardgame.poll.find{it.@name=='language_dependence'}.results.result.find{it.@numvotes=='"
+                .get(path + "find{it.@numvotes=='"
                         + getMaxValue(gameId) + "'}.@value");
     }
 

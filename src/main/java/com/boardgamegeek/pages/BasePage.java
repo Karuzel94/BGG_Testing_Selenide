@@ -1,22 +1,18 @@
 package com.boardgamegeek.pages;
 
-import com.boardgamegeek.utilities.TestHelper;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.and;
-import static com.codeborne.selenide.Condition.disappear;
+import static com.codeborne.selenide.Condition.*;
 
 public abstract class BasePage {
 
-    public TestHelper testHelper = new TestHelper();
-
     public void visibilityCheck(SelenideElement element) {
-        element.shouldBe(Condition.visible);
+        element.shouldBe(visible);
     }
 
     public void checkElementClickable(SelenideElement element) {
-        Condition clickable = and("can be clicked", Condition.visible, Condition.enabled);
+        Condition clickable = and("can be clicked", visible, enabled);
         element.shouldBe(clickable);
     }
 

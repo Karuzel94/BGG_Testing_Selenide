@@ -1,6 +1,7 @@
 package com.boardgamegeek.pages.collectionPage.fragments;
 
 import com.boardgamegeek.pages.BasePage;
+import com.boardgamegeek.utilities.Randomizer;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
@@ -14,7 +15,6 @@ public class GamesListFragment extends BasePage {
 
     private final String gameLink = " a[href*='boardgame']";
     private final String myRating = " .ratingtext";
-    private final String deleteGameButton = " a[onclick*='CE_DeleteItem']";
     private int gameId = 0;
 
     private ElementsCollection gamesInCollectionList = $$("tr[id*='row_']");
@@ -25,19 +25,24 @@ public class GamesListFragment extends BasePage {
 
     private SelenideElement filtersButton = $("span[style='float:left;'] > a:nth-child(1)");
 
-    public GamesListFragment clickDefinedGameFromList(String name) {
-        synchronization(loadingInformation);
-        for (SelenideElement element : gamesInCollectionList) {
-            if (element.$(gameLink).getText().equals(name)) {
-                click(element.$(gameLink));
-                break;
-            }
-        }
-        return this;
-    }
-
     public SelenideElement getChildElement(int elementId, String childName) {
         return gamesInCollectionList.get(elementId).$(childName);
+    }
+
+    public int findGameIdInListByTitle(String title) {
+        this.gameId = 0;
+        for (SelenideElement element : gamesInCollectionList) {
+            if (element.$(gameLink).getText().equals(title)) {
+                break;
+            }
+            this.gameId++;
+        }
+        return this.gameId;
+    }
+
+    public GamesListFragment goToSpecificGameFromList(String title) {
+        click(getChildElement(findGameIdInListByTitle(title), gameLink));
+        return this;
     }
 
     public int getSizeOfGamesList() {
@@ -45,20 +50,12 @@ public class GamesListFragment extends BasePage {
     }
 
     public GamesListFragment chooseRandomGameFromList() {
-        click(getChildElement(testHelper.getRandomNumber(0, getSizeOfGamesList()), gameLink));
+        click(getChildElement(Randomizer.Random.getRandomNumber(0, getSizeOfGamesList()), gameLink));
         return this;
     }
 
-    public int getRatingFromCollection(String name) {
-        int i = 0;
-        for (SelenideElement element : gamesInCollectionList) {
-            if (element.$(gameLink).getText().equals(name)) {
-                this.gameId = i;
-                break;
-            }
-            i++;
-        }
-        return Integer.valueOf(getChildElement(gameId, myRating).getText());
+    public int getMyRatingFromGameInCollection(String title) {
+        return Integer.parseInt(getChildElement(findGameIdInListByTitle(title), myRating).getText());
     }
 
     public GamesListFragment sortCollectionByTitles() {
@@ -76,7 +73,7 @@ public class GamesListFragment extends BasePage {
         return gamesInCollectionList.stream().map(e -> e.$(myRating).getText()).collect(Collectors.toList());
     }
 
-    public List<String> getGamesNamesList() {
+    public List<String> getGamesTitlesList() {
         return gamesInCollectionList.stream().map(e -> e.$(gameLink).getText()).collect(Collectors.toList());
     }
 

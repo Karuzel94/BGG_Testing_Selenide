@@ -12,7 +12,6 @@
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>4.2.2</webdrivermanager.version>
         <testng.version>7.0.0</testng.version>
-        <junit.version>4.12</junit.version>
         <assertj.version>3.18.1</assertj.version>
         <log4j.version>2.13.0</log4j.version>
         <rest-assured.version>4.3.3</rest-assured.version>
@@ -36,11 +35,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>

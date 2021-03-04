@@ -7,20 +7,18 @@ import com.boardgamegeek.pages.fragments.SignInFragment;
 import com.boardgamegeek.pages.fragments.UserMenuFragment;
 import com.boardgamegeek.pages.gamePage.GamePage;
 import com.boardgamegeek.utilities.LoginProperties;
-import com.boardgamegeek.utilities.TestHelper;
 import com.boardgamegeek.xmlFiles.GameXmlFile;
 
 
 public abstract class BaseTest {
 
-    public SignInFragment signInFragment = new SignInFragment();
-    public LoginProperties loginProperties = new LoginProperties();
-    public UserMenuFragment userMenuFragment = new UserMenuFragment();
-    public MenuFragment menuFragment = new MenuFragment();
-    public TestHelper testHelper = new TestHelper();
-    public CollectionPage collectionPage = new CollectionPage();
-    public GamePage gamePage = new GamePage();
-    public GameXmlFile gameXmlFile = new GameXmlFile();
-    public AllBoardgamesPage allBoardgamesPage = new AllBoardgamesPage();
+    protected SignInFragment signInFragment = new SignInFragment();
+    protected LoginProperties loginProperties = new LoginProperties();
+    protected UserMenuFragment userMenuFragment = new UserMenuFragment();
+    protected MenuFragment menuFragment = new MenuFragment();
+    protected CollectionPage collectionPage = new CollectionPage();
+    protected GamePage gamePage = new GamePage();
+    protected GameXmlFile gameXmlFile = new GameXmlFile();
+    protected AllBoardgamesPage allBoardgamesPage = new AllBoardgamesPage();
 
 }

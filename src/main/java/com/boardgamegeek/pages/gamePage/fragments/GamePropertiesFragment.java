@@ -9,14 +9,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class GamePropertiesFragment extends BasePage {
 
-
-    private SelenideElement addToCollectionButton = $("div[class='toolbar-action'] button[class='btn btn-sm btn-primary toolbar-action-full']");
-
-    private SelenideElement inCollectionButton = $("div[class='toolbar-action'] button[id='button-collection']");
-
     private SelenideElement gameTitle = $("div[class='game-header-title-info'] a[ui-sref='geekitem.overview']");
-
-    private SelenideElement editGamePropertiesButton = $(".btn.btn-sm.btn-subtle.collection-dropdown-edit");
 
     private SelenideElement languageDependenceInformation = $("span[ng-bind-html*='languagedependence']");
 

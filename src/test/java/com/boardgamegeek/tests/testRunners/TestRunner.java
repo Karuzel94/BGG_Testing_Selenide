@@ -1,4 +1,4 @@
-package com.boardgamegeek.tests.cucumberOptions;
+package com.boardgamegeek.tests.testRunners;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
@@ -13,12 +13,11 @@ import org.testng.annotations.BeforeMethod;
 
 import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
-
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com/boardgamegeek/tests/stepDefinitions",
-        tags = "@myRating"
-        // myRating, logIn, @sortingTest, @filteringTest, languageDependence,
+        tags = "@filteringTest"
+        // myRating, logIn, sortingTest, filteringTest, languageDependence,
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
@@ -27,7 +26,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("--incognito");
-        WebDriverManager.chromedriver().browserVersion("87.0.4280.88").setup();
+        WebDriverManager.chromedriver().setup();
         WebDriver webDriver = new ChromeDriver(options);
         setWebDriver(webDriver);
         Selenide.open("https://boardgamegeek.com/");

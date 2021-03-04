@@ -11,7 +11,7 @@ public class CollectionPage {
     private FiltersFragment filtersFragment = new FiltersFragment();
 
     public CollectionPage goToSpecificGameFromList(String name) {
-        gamesListFragment.clickDefinedGameFromList(name);
+        gamesListFragment.goToSpecificGameFromList(name);
         return this;
     }
 
@@ -25,8 +25,8 @@ public class CollectionPage {
         return this;
     }
 
-    public int getRatingFromCollection(String name) {
-        return gamesListFragment.getRatingFromCollection(name);
+    public int getMyRatingFromGameInCollection(String title) {
+        return gamesListFragment.getMyRatingFromGameInCollection(title);
     }
 
     public CollectionPage myRatingFiltering(Double min, Double max) {
@@ -45,7 +45,7 @@ public class CollectionPage {
     }
 
     public List<String> getGamesTitlesList() {
-        return gamesListFragment.getGamesNamesList();
+        return gamesListFragment.getGamesTitlesList();
     }
 
 }

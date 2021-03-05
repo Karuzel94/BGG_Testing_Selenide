@@ -15,7 +15,6 @@ public class GamesListFragment extends BasePage {
 
     private final String gameLink = " a[href*='boardgame']";
     private final String myRating = " .ratingtext";
-    private int gameId = 0;
 
     private ElementsCollection gamesInCollectionList = $$("tr[id*='row_']");
 
@@ -30,14 +29,14 @@ public class GamesListFragment extends BasePage {
     }
 
     public int findGameIdInListByTitle(String title) {
-        this.gameId = 0;
+        int gameId = 0;
         for (SelenideElement element : gamesInCollectionList) {
-            if (element.$(gameLink).getText().equals(title)) {
+            if (getChildElement(gameId, gameLink).getText().equals(title)) {
                 break;
             }
-            this.gameId++;
+            gameId++;
         }
-        return this.gameId;
+        return gameId;
     }
 
     public GamesListFragment goToSpecificGameFromList(String title) {

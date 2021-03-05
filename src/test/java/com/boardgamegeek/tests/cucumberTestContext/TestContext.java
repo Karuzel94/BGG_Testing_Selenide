@@ -9,6 +9,8 @@ public class TestContext {
 
     private int tempNumber;
 
+    private int secondTempNumber;
+
     private List<String> titlesList = new ArrayList<>();
 
     public String getTempString() {
@@ -48,6 +50,13 @@ public class TestContext {
         titlesList = new ArrayList<>(result2.keySet());
     }
 
+    public int getSecondTempNumber() {
+        return secondTempNumber;
+    }
+
+    public void setSecondTempNumber(int secondTempNumber) {
+        this.secondTempNumber = secondTempNumber;
+    }
 }
 
 

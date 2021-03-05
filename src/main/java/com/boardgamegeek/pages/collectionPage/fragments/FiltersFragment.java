@@ -15,7 +15,7 @@ public class FiltersFragment extends BasePage {
 
     private SelenideElement loadingInformation = $("#collection_status");
 
-    public FiltersFragment myRatingFiltering(Double min, Double max) {
+    public FiltersFragment myRatingFiltering(int min, int max) {
         insertValue(minMyRating, String.valueOf(min));
         insertValue(maxMyRating, String.valueOf(max));
         return this;

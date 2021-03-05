@@ -36,10 +36,9 @@ public class LogInSteps extends BaseTest implements En {
 
 
     @Given("^User enters an invalid username (.+) and password (.+)$")
-    public void user_enters_an_invalid_username_and_password(String login, String password) throws InterruptedException {
+    public void user_enters_an_invalid_username_and_password(String login, String password) {
         signInFragment.clickSignInButton();
         signInFragment.signIn(login, password);
-        Thread.sleep(500);
     }
 
     @Then("^User checks if he receives an error$")

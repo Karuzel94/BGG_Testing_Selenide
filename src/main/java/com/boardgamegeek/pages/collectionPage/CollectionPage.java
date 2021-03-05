@@ -29,7 +29,7 @@ public class CollectionPage {
         return gamesListFragment.getMyRatingFromGameInCollection(title);
     }
 
-    public CollectionPage myRatingFiltering(Double min, Double max) {
+    public CollectionPage myRatingFiltering(int min, int max) {
         gamesListFragment.openFilters();
         filtersFragment.myRatingFiltering(min, max);
         return this;
